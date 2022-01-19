@@ -1,5 +1,7 @@
 window.addEventListener('load', slideshowSetup);
 
+let slideIndex = 0
+
 function slideshowSetup(){
 document.getElementById('slideshow-next').addEventListener('click', slideshowNext);
 }
@@ -7,6 +9,17 @@ document.getElementById('slideshow-next').addEventListener('click', slideshowNex
 function slideshowNext() {
 
 let slides = document.getElementsByClassName('slide');
+;
 
-slides[0].classList.remove('visible');
+
+slides[slideIndex].classList.remove('visible');
+
+slideIndex ++;
+
+if(slideIndex == slides.length) {
+    slideIndex = 0;
+}
+
+slides[slideIndex].classList.add('visible');
+
 }
